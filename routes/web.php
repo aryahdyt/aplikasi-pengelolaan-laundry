@@ -38,6 +38,13 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::delete('/pengguna/{id}', [PenggunaController::class, 'destroy'])->name('');
 
     Route::get('/outlet', [OutletController::class, 'index'])->name('outlet');
+    Route::get('/outlet/tambah', [OutletController::class, 'create'])->name('tambah-outlet');
+    Route::post('/outlet/tambah', [OutletController::class, 'store'])->name('simpan-outlet');
+    Route::get('/outlet/{id}', [OutletController::class, 'show'])->name('detail-outlet');
+    Route::get('/outlet/{id}/edit', [OutletController::class, 'edit'])->name('edit-outlet');
+    Route::put('/outlet/{id}', [OutletController::class, 'update'])->name('');
+    Route::delete('/outlet/{id}', [OutletController::class, 'destroy'])->name('');
+
 
     Route::get('/pelanggan', [App\Http\Controllers\PelangganController::class, 'index'])->name('pelanggan');
 });

@@ -10,7 +10,7 @@ dasboard
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>150</h3>
+                <h3>{{ $countOutlets }}</h3>
 
                 <p class="text-uppercase">{{ __('outlet') }}</p>
             </div>

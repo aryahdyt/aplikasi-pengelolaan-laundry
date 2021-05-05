@@ -70,6 +70,9 @@ Tambah Data Pengguna
                 <div class="col-4 m-auto">
                     <a href="javascript:void(0)" onclick="window.history.back();" class="btn btn-outline-primary"><i
                             class="fas fa-arrow-left"></i></a>
+                    <button type="reset" class="btn bg-gradient-danger">
+                        <i class="fas fa-redo"></i>
+                    </button>
                     <button type="submit" class="btn bg-gradient-primary">
                         {{ __('Tambah') }}
                     </button>
