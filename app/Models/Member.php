@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+
+    protected $table = "members";
+
+    protected $fillable = [
+        "nama",
+        "alamat",
+        "jenis_kelamin",
+        "telepon",
+    ];
 }

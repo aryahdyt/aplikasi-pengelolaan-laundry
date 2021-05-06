@@ -42,10 +42,9 @@ Data Master Outlet
             <td>
                 @if ($outlet->user)
                 {{ $outlet->user->name }}
-                @endif
-                @if ($outlet->user == null)
-                {{ __('Owner Belum Di tentukan') }}
-                <a href="{{ route('tambah-outlet') }}" class="btn btn-success text-xs"><i class="fas fa-plus"></i></a>
+                @else
+                <a href="{{ route('pengguna') }}" class="text-danger text-xs mb-3">Atur Owner Di Bagian Menu
+                    Pengguna</a>
                 @endif
             </td>
             <td>{{ $outlet->telepon }}</td>

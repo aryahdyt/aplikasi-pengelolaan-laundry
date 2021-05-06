@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use App\Models\Outlet;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,7 @@ class DashboardController extends Controller
     public function index()
     {
         $countOutlets = Outlet::all()->count();
-        return view('dashboard', compact('countOutlets'));
+        $countMembers = Member::all()->count();
+        return view('dashboard', compact('countOutlets', 'countMembers'));
     }
 }

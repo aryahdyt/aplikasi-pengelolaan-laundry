@@ -47,11 +47,11 @@ class OutletController extends Controller
     {
         $outlets = Outlet::where('id', $id)->first();
         // dd($outlets);
-        $allOutlets = Outlet::get();
+        // $allOutlets = Outlet::get();
         // dd($allOutlets);
-        $users = User::get()->where('level', 'owner');
+        // $users = User::get()->where('level', 'owner');
 
-        return view('outlet.edit', compact('outlets', 'users', 'allOutlets'));
+        return view('outlet.edit', compact('outlets'));
     }
 
     public function update($id, Request $request)

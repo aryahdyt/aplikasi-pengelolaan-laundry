@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Middleware\CekLevel;
 use Illuminate\Support\Facades\Auth;
@@ -46,8 +47,15 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::delete('/outlet/{id}', [OutletController::class, 'destroy'])->name('');
 
 
-    Route::get('/pelanggan', [App\Http\Controllers\PelangganController::class, 'index'])->name('pelanggan');
+    Route::get('/pelanggan', [PelangganController::class, 'index'])->name('pelanggan');
+    Route::get('/pelanggan/tambah', [PelangganController::class, 'create'])->name('tambah-pelanggan');
+    Route::post('/pelanggan/tambah', [PelangganController::class, 'store'])->name('simpan-pelanggan');
+    Route::get('/pelanggan/{id}', [PelangganController::class, 'show'])->name('detail-pelanggan');
+    Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('edit-pelanggan');
+    Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('');
+    Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('');
 });
+
 Route::group(['middleware' => ['auth', 'CekLevel:kasir']], function () {
     // Route::get('/user', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard2');
 });
