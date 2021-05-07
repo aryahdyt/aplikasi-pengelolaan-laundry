@@ -63,7 +63,7 @@ Data Master Pengguna
             </tr>
             @empty
             <tr>
-                <td colspan="4" align="center">Data Tidak Ditemukan</td>
+                <td colspan="6" align="center">Data Tidak Ditemukan</td>
             </tr>
             @endforelse
         </tbody>

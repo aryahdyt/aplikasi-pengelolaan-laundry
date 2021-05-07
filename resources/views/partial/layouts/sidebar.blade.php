@@ -15,7 +15,7 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <nav class="mt-2">
+        <nav class="mt-2 text-capitalize">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
@@ -48,6 +48,14 @@
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             {{ __('pelanggan') }}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="{{ route('paket') }}" class="nav-link">
+                        <i class="nav-icon fas fa-archive"></i>
+                        <p>
+                            {{ __('paket') }}
                         </p>
                     </a>
                 </li>

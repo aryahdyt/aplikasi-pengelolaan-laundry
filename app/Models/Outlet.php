@@ -27,4 +27,9 @@ class Outlet extends Model
     {
         return $this->hasOne(User::class)->where('level', 'owner');
     }
+
+    public function paket()
+    {
+        return $this->hasOne(Paket::class);
+    }
 }

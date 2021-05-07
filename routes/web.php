@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OutletController;
+use App\Http\Controllers\PaketController;
 use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Middleware\CekLevel;
@@ -54,6 +55,14 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::get('/pelanggan/{id}/edit', [PelangganController::class, 'edit'])->name('edit-pelanggan');
     Route::put('/pelanggan/{id}', [PelangganController::class, 'update'])->name('');
     Route::delete('/pelanggan/{id}', [PelangganController::class, 'destroy'])->name('');
+
+    Route::get('/paket', [PaketController::class, 'index'])->name('paket');
+    Route::get('/paket/tambah', [PaketController::class, 'create'])->name('tambah-paket');
+    Route::post('/paket/tambah', [PaketController::class, 'store'])->name('simpan-paket');
+    Route::get('/paket/{id}', [PaketController::class, 'show'])->name('detail-paket');
+    Route::get('/paket/{id}/edit', [PaketController::class, 'edit'])->name('edit-paket');
+    Route::put('/paket/{id}', [PaketController::class, 'update'])->name('');
+    Route::delete('/paket/{id}', [PaketController::class, 'destroy'])->name('');
 });
 
 Route::group(['middleware' => ['auth', 'CekLevel:kasir']], function () {
