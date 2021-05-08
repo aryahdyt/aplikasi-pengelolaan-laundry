@@ -32,4 +32,9 @@ class Outlet extends Model
     {
         return $this->hasOne(Paket::class);
     }
+
+    public function transaksi()
+    {
+        return $this->hasMany(Paket::class);
+    }
 }

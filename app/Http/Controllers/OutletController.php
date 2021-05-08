@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class OutletController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $outlets = Outlet::paginate(5);

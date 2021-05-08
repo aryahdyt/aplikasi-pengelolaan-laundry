@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class PelangganController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pelanggans = Member::paginate(5);

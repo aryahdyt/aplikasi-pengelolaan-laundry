@@ -28,4 +28,9 @@ class Paket extends Model
     {
         return $this->belongsTo(Outlet::class);
     }
+
+    public function detail_transaksi()
+    {
+        return $this->hasOne(Detail_transaksi::class);
+    }
 }

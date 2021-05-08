@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Outlet::class, 'outlet_id');
     }
+
+    public function transaksi()
+    {
+        return $this->hasOne(Transaksi::class);
+    }
 }

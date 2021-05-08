@@ -23,4 +23,9 @@ class Member extends Model
         "jenis_kelamin",
         "telepon",
     ];
+
+    public function transaksi()
+    {
+        return $this->hasMany(Paket::class);
+    }
 }
