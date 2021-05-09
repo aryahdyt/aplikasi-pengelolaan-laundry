@@ -7,6 +7,7 @@ use App\Http\Controllers\PelangganController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Middleware\CekLevel;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,11 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
     Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edit'])->name('edit-transaksi');
     Route::put('/transaksi/{id}', [TransaksiController::class, 'update'])->name('');
+    Route::get('/transaksi/tambah', [TransaksiController::class, 'create'])->name('tambah-transaksi');
+
+
+    Route::get('/transaksi/outlet', [TransaksiController::class, 'tampilOutlet'])->name('transaksi-cari-outlet');
+    Route::get('/transaksi/outlet/{id}', [TransaksiController::class, 'create'])->name('');
 });
 
 Route::group(['middleware' => ['auth', 'CekLevel:kasir']], function () {
