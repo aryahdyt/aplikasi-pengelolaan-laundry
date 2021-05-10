@@ -13,7 +13,7 @@ Update Data Transaksi
             <div class="input-group mb-3">
                 <input id="kode_invoice" type="text" class="form-control" name="kode_invoice"
                     value="{{ old('kode_invoice', $transaksis->kode_invoice) }}" required placeholder="Kode Invoice"
-                    disabled>
+                    readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-receipt"></span>
@@ -23,7 +23,8 @@ Update Data Transaksi
 
             <div class="input-group mb-3">
                 <input id="outlet" type="text" class="form-control" name="outlet"
-                    value="{{ old('outlet', $transaksis->outlet->nama) }}" required placeholder="Outlet" disabled>
+                    value="{{ old('outlet', $transaksis->outlet->nama) }}" required placeholder="Outlet"
+                    readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-store"></span>
@@ -33,7 +34,8 @@ Update Data Transaksi
 
             <div class="input-group mb-3">
                 <input id="member" type="text" class="form-control" name="member"
-                    value="{{ old('member', $transaksis->member->nama) }}" required placeholder="Pelanggan" disabled>
+                    value="{{ old('member', $transaksis->member->nama) }}" required placeholder="Pelanggan"
+                    readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-users"></span>
@@ -44,7 +46,7 @@ Update Data Transaksi
             <div class="input-group mb-3">
                 <input id="jenis" type="text" class="form-control" name="jenis"
                     value="{{ old('jenis', $transaksis->detail_transaksi->paket->nama_paket) }}" required
-                    placeholder="Jenis" disabled>
+                    placeholder="Jenis" readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-archive"></span>
@@ -54,8 +56,30 @@ Update Data Transaksi
 
             <div class="input-group mb-3">
                 <input id="jumlah" type="text" class="form-control" name="jumlah"
-                    value="{{ old('jumlah', $transaksis->detail_transaksi->qty) }}" required placeholder="jumlah"
-                    disabled>
+                    value="{{ "Jumlah : " . $transaksis->detail_transaksi->qty }}" required placeholder="jumlah"
+                    readonly="readonly">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-grip-vertical"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input id="jumlah" type="text" class="form-control" name="jumlah"
+                    value="{{ "Diskon : Rp . " . number_format($transaksis->diskon) }}" required placeholder="jumlah"
+                    readonly="readonly">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-percent"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input id="jumlah" type="text" class="form-control" name="jumlah"
+                    value="{{ "Pajak : Rp . " . number_format($transaksis->pajak) }}" required placeholder="jumlah"
+                    readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-grip-vertical"></span>
@@ -65,8 +89,8 @@ Update Data Transaksi
 
             <div class="input-group mb-3">
                 <input id="total_harga" type="text" class="form-control" name="total_harga"
-                    value="{{ old('total_harga', $transaksis->detail_transaksi->total_harga) }}" required
-                    placeholder="total harga" disabled>
+                    value="{{ 'Total Harga : Rp. ' . number_format($transaksis->detail_transaksi->total_harga) }}"
+                    placeholder="total harga" readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-dollar-sign"></span>
@@ -76,8 +100,8 @@ Update Data Transaksi
 
             <div class="input-group mb-3">
                 <input id="total_bayar" type="text" class="form-control" name="total_bayar"
-                    value="{{ old('total_bayar', $transaksis->detail_transaksi->total_bayar) }}" required
-                    placeholder="total bayar" disabled>
+                    value="{{ 'Total Bayar : Rp. ' . number_format($transaksis->detail_transaksi->total_bayar) }}"
+                    required placeholder="total bayar" readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-money-bill"></span>

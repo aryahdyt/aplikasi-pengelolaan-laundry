@@ -70,10 +70,14 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function () {
     Route::get('/transaksi/{id}/edit', [TransaksiController::class, 'edit'])->name('edit-transaksi');
     Route::put('/transaksi/{id}', [TransaksiController::class, 'update'])->name('');
     Route::get('/transaksi/tambah', [TransaksiController::class, 'create'])->name('tambah-transaksi');
-
+    Route::post('/transaksi/tambah', [TransaksiController::class, 'store'])->name('simpan-transaksi');
 
     Route::get('/transaksi/outlet', [TransaksiController::class, 'tampilOutlet'])->name('transaksi-cari-outlet');
     Route::get('/transaksi/outlet/{id}', [TransaksiController::class, 'create'])->name('');
+
+    Route::get('/transaksi/pembayaran', [TransaksiController::class, 'tabel_pembayaran'])->name('konfirmasi-pembayaran');
+    Route::get('/transaksi/pembayaran/{id}', [TransaksiController::class, 'edit_pembayaran'])->name('edit-pembayaran');
+    Route::put('/transaksi/pembayaran/{id}', [TransaksiController::class, 'update_pembayaran'])->name('update-pembayaran');
 });
 
 Route::group(['middleware' => ['auth', 'CekLevel:kasir']], function () {

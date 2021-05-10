@@ -24,7 +24,8 @@ Data Master Transaksi
 <div class="container">
     <a href="{{ route('transaksi-cari-outlet') }}" class="btn btn-primary mb-2"><i
             class="fas fa-plus mr-2"></i>Tambah</a>
-    <a href="" class="btn btn-primary mb-2"><i class="fas fa-check mr-2"></i>Konfirmasi Pembayaran</a>
+    <a href="{{ route('konfirmasi-pembayaran') }}" class="btn btn-primary mb-2"><i
+            class="fas fa-check mr-2"></i>Konfirmasi Pembayaran</a>
 
     <table id="example2" class="table table-bordered table-responsive-lg table-hover text-capitalize text-center">
         <thead>
@@ -68,7 +69,7 @@ Data Master Transaksi
             </tr>
             @empty
             <tr>
-                <td colspan="6" align="center">Data Tidak Ditemukan</td>
+                <td colspan="7" align="center">Data Tidak Ditemukan</td>
             </tr>
             @endforelse
         </tbody>

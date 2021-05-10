@@ -7,11 +7,11 @@ Tambah Data Transaksi
 @section('content')
 <div class="row">
     <div class="col-lg-7 m-auto">
-        <form method="POST" action="{{ route('simpan-pelanggan') }}">
+        <form method="POST" action="{{ route('simpan-transaksi') }}">
             @csrf
             <div class="input-group mb-3">
-                <input id="kode_invoice" type="text" class="form-control" name="kode_invoice"
-                    value="{{ old('kode_invoice', $invoice) }}" required placeholder="total harga" disabled>
+                <input id="kode_invoice" type="text" id="disabledTextInput" class="form-control" name="kode_invoice"
+                    value="{{ $invoice }}" required placeholder="Kode Invoice" readonly="readonly">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-code"></span>
@@ -20,11 +20,12 @@ Tambah Data Transaksi
             </div>
 
             <div class="input-group mb-3">
-                <input id="outlet" type="text" class="form-control" name="outlet"
-                    value="{{ old('outlet', $outlet->nama) }}" required placeholder="total harga" disabled>
+                <select class="form-control text-capitalize" name="outlet" readonly="readonly">
+                    <option value="{{ $outlet->id }}">{{ $outlet->nama }}</option>
+                </select>
                 <div class="input-group-append">
                     <div class="input-group-text">
-                        <span class="fas fa-store"></span>
+                        <span class="fas fa-users"></span>
                     </div>
                 </div>
             </div>
@@ -44,13 +45,15 @@ Tambah Data Transaksi
             </div>
 
             <div class="input-group mb-3">
-                <select class="form-control text-capitalize" name="outlet">
+                <select class="form-control text-capitalize" name="paket">
                     <option value="">- Pilih Paket -</option>
                     {{-- @if ($pakets == null)
                     <option value=""><a href="">Buat Paket Anda Di Menu Paket</a></option>
                     @endif --}}
                     @foreach ($pakets as $paket)
-                    <option value="{{ $paket->id }}">{{ $paket->nama_paket }}</option>
+                    <option value="{{ $paket->id }}">
+                        {{ $paket->nama_paket . '( Rp . '. number_format($paket->harga) . ')' }}
+                    </option>
                     @endforeach
                 </select>
                 <div class="input-group-append">
@@ -72,33 +75,15 @@ Tambah Data Transaksi
 
             <div class="input-group mb-3">
                 <input id="biaya_tambahan" type="number" class="form-control" name="biaya_tambahan"
-                    value="{{ old('biaya_tambahan') }}" required placeholder="Biaya Tambahan">
+                    value="{{ old('biaya_tambahan') }}" placeholder="Biaya Tambahan">
                 <div class="input-group-append">
                     <div class="input-group-text">
                         <span class="fas fa-money-bill-alt"></span>
                     </div>
                 </div>
             </div>
-
-            <div class="input-group mb-3">
-                <input id="diskon" type="number" class="form-control" name="diskon" value="{{ old('diskon') }}" required
-                    placeholder="Diskon">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-percent"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="input-group mb-3">
-                <input id="pajak" type="number" class="form-control" name="pajak" value="{{ old('pajak') }}" required
-                    placeholder="Pajak">
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-hand-holding-usd"></span>
-                    </div>
-                </div>
-            </div>
+            <div class="text-danger text-xs">**Diskon 20% (Jika Total Harga Diatas Rp . 20.000)</div>
+            <div class="text-danger text-xs m-0">**Pajak 10%</div>
 
             <div class="row my-2">
                 <!-- /.col -->
